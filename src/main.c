@@ -18,5 +18,19 @@ int main()
 	}
 
 	deleteArrayList(arrayList);
+
+	LinkedList *linkedList = newLinkedList();
+
+	for(i = 0; i < 10; ++i)
+	{
+		linkedList->list.push(&linkedList->list, i);
+	}
+
+	for(i = 0; i < 10; ++i)
+	{
+		printf("%d\n", linkedList->list.pop(&linkedList->list));
+	}
+
+	deleteLinkedList(linkedList);
 	return 0;
 }

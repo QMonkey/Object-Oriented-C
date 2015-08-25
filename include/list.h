@@ -9,7 +9,7 @@
 typedef struct _IList IList;
 typedef struct _ArrayList ArrayList;
 typedef struct _LinkedList LinkedList;
-typedef struct _Node Node;
+typedef struct _ListNode ListNode;
 
 struct _IList
 {
@@ -25,15 +25,15 @@ struct _ArrayList
 	IList list;
 };
 
-struct _Node
+struct _ListNode
 {
 	int value;
-	struct _Node *next;
+	struct _ListNode *next;
 };
 
 struct _LinkedList
 {
-	struct _Node *head;
+	struct _ListNode *head;
 	IList list;
 };
 

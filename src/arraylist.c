@@ -4,8 +4,8 @@
 
 #include "list.h"
 
-static void ArrayList_push(struct _IList *list, int elem);
-static int ArrayList_pop(struct _IList *list);
+static void ArrayList_push(IList *list, int elem);
+static int ArrayList_pop(IList *list);
 static void ArrayList_resize(ArrayList *arrayList, size_t size);
 
 ArrayList* newArrayList(size_t size)
@@ -31,7 +31,7 @@ ArrayList* newArrayList(size_t size)
 	return arrayList;
 }
 
-void ArrayList_push(struct _IList *list, int elem)
+void ArrayList_push(IList *list, int elem)
 {
 	ArrayList *arrayList = container_of(list, ArrayList, list);
 	if(arrayList->_capacity == arrayList->_size)
@@ -41,7 +41,7 @@ void ArrayList_push(struct _IList *list, int elem)
 	arrayList->_data[arrayList->_capacity++] = elem;
 }
 
-int ArrayList_pop(struct _IList *list)
+int ArrayList_pop(IList *list)
 {
 	ArrayList *arrayList = container_of(list, ArrayList, list);
 	return arrayList->_data[--arrayList->_capacity];

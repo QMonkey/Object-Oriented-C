@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "base.h"
 #include "list.h"
 
 static void ArrayList_push(IList *list, int elem);

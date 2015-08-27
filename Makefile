@@ -5,7 +5,7 @@ SRCPATH = src
 CC = gcc
 
 EXEC = $(EXECPATH)/ooc
-OBJS = $(OBJPATH)/arraylist.o $(OBJPATH)/linkedlist.o $(OBJPATH)/main.o
+OBJS = $(OBJPATH)/arraylist.o $(OBJPATH)/linkedlist.o $(OBJPATH)/linkedqueue.o $(OBJPATH)/main.o
 
 all: $(OBJS) $(EXEC)
 
@@ -17,6 +17,9 @@ $(OBJPATH)/arraylist.o: $(SRCPATH)/arraylist.c
 
 $(OBJPATH)/linkedlist.o: $(SRCPATH)/linkedlist.c
 	$(CC) -g -c $< -I $(INCLUDEPATH) -o $@
+
+$(OBJPATH)/linkedqueue.o: $(SRCPATH)/linkedqueue.c
+	$(CC) -g -c $< -I $(INCLUDEPATH) -o $@	
 
 $(OBJPATH)/main.o: $(SRCPATH)/main.c
 	$(CC) -g -c $< -I $(INCLUDEPATH) -o $@

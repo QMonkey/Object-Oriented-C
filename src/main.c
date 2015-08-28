@@ -15,7 +15,7 @@ int main()
 
 	for(i = 0; i < 10; ++i)
 	{
-		printf("%d\n", arrayList->list.pop(&arrayList->list));
+		printf("%d ", arrayList->list.pop(&arrayList->list));
 	}
 	printf("\n");
 
@@ -30,14 +30,14 @@ int main()
 
 	for(i = 0; i < 10; ++i)
 	{
-		printf("%d\n", linkedList->list.pop(&linkedList->list));
+		printf("%d ", linkedList->list.pop(&linkedList->list));
 	}
 	printf("\n");
 
 	deleteLinkedList(linkedList);
 
 	linkedList = newLinkedList();
-	LinkedQueue *linkedqueue = newLinkedQueue(linkedList);
+	LinkedQueue *linkedqueue = newLinkedQueue(&linkedList->list);
 	for(i = 0; i < 10; ++i)
 	{
 		linkedqueue->queue.add(&linkedqueue->queue, i);
@@ -45,10 +45,12 @@ int main()
 
 	for(i = 0; i < 10; ++i)
 	{
-		printf("%d\n", linkedqueue->queue.remove(&linkedqueue->queue));
+		printf("%d ", linkedqueue->queue.remove(&linkedqueue->queue));
 	}
+	printf("\n");
 
 	deleteLinkedQueue(linkedqueue);
+	deleteLinkedList(linkedList);
 
 	return 0;
 }

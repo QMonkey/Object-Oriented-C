@@ -14,11 +14,11 @@ struct _IQueue
 
 struct _LinkedQueue
 {
-	LinkedList *linkedList;
+	IList *list;
 	struct _IQueue queue;
 };
 
-extern LinkedQueue* newLinkedQueue(LinkedList *linkedList);
+extern LinkedQueue* newLinkedQueue(IList *list);
 extern void deleteLinkedQueue(LinkedQueue *queue);
 
 #endif

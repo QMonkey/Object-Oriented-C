@@ -10,12 +10,12 @@ int main()
 	int i;
 	for(i = 0; i < 10; ++i)
 	{
-		arrayList->list.push(&arrayList->list, i);
+		arrayList->ilist.push(&arrayList->ilist, i);
 	}
 
 	for(i = 0; i < 10; ++i)
 	{
-		printf("%d ", arrayList->list.pop(&arrayList->list));
+		printf("%d ", arrayList->ilist.pop(&arrayList->ilist));
 	}
 	printf("\n");
 
@@ -25,27 +25,27 @@ int main()
 
 	for(i = 0; i < 10; ++i)
 	{
-		linkedList->list.push(&linkedList->list, i);
+		linkedList->ilist.push(&linkedList->ilist, i);
 	}
 
 	for(i = 0; i < 10; ++i)
 	{
-		printf("%d ", linkedList->list.pop(&linkedList->list));
+		printf("%d ", linkedList->ilist.pop(&linkedList->ilist));
 	}
 	printf("\n");
 
 	deleteLinkedList(linkedList);
 
 	linkedList = newLinkedList();
-	LinkedQueue *linkedqueue = newLinkedQueue(&linkedList->list);
+	LinkedQueue *linkedqueue = newLinkedQueue(&linkedList->ilist);
 	for(i = 0; i < 10; ++i)
 	{
-		linkedqueue->queue.add(&linkedqueue->queue, i);
+		linkedqueue->iqueue.add(&linkedqueue->iqueue, i);
 	}
 
 	for(i = 0; i < 10; ++i)
 	{
-		printf("%d ", linkedqueue->queue.remove(&linkedqueue->queue));
+		printf("%d ", linkedqueue->iqueue.remove(&linkedqueue->iqueue));
 	}
 	printf("\n");
 

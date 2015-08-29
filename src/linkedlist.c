@@ -17,15 +17,15 @@ LinkedList* newLinkedList()
 	}
 	linkedList->head = NULL;
 
-	linkedList->list.push = LinkedList_push;
-	linkedList->list.pop = LinkedList_pop;
+	linkedList->ilist.push = LinkedList_push;
+	linkedList->ilist.pop = LinkedList_pop;
 
 	return linkedList;
 }
 
 void LinkedList_push(IList *list, int elem)
 {
-	LinkedList *linkedList = container_of(list, LinkedList, list);
+	LinkedList *linkedList = container_of(list, LinkedList, ilist);
 
 	ListNode **node = &linkedList->head;
 	while(*node != NULL)
@@ -42,7 +42,7 @@ void LinkedList_push(IList *list, int elem)
 
 int LinkedList_pop(IList *list)
 {
-	LinkedList *linkedList = container_of(list, LinkedList, list);
+	LinkedList *linkedList = container_of(list, LinkedList, ilist);
 	assert(linkedList->head != NULL);
 
 	ListNode *tmp = linkedList->head;

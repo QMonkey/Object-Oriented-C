@@ -15,7 +15,7 @@ struct _IQueue
 struct _LinkedQueue
 {
 	IList *list;
-	struct _IQueue queue;
+	struct _IQueue iqueue;
 };
 
 extern LinkedQueue* newLinkedQueue(IList *list);

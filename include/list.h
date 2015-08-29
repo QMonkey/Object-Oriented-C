@@ -17,7 +17,7 @@ struct _ArrayList
 	int *_data;
 	size_t _capacity;
 	size_t _size;
-	IList list;
+	IList ilist;
 };
 
 struct _ListNode
@@ -29,7 +29,7 @@ struct _ListNode
 struct _LinkedList
 {
 	struct _ListNode *head;
-	IList list;
+	IList ilist;
 };
 
 extern ArrayList* newArrayList(size_t size);

@@ -17,8 +17,8 @@ LinkedQueue* newLinkedQueue(IList *list)
 	}
 	linkedqueue->list = list;
 
-	linkedqueue->queue.add = LinkedQueue_add;
-	linkedqueue->queue.remove = LinkedQueue_remove;
+	linkedqueue->iqueue.add = LinkedQueue_add;
+	linkedqueue->iqueue.remove = LinkedQueue_remove;
 
 	return linkedqueue;
 }
@@ -30,12 +30,12 @@ void deleteLinkedQueue(LinkedQueue *queue)
 
 void LinkedQueue_add(struct _IQueue *queue, int elem)
 {
-	LinkedQueue *linkedQueue = container_of(queue, LinkedQueue, queue);
+	LinkedQueue *linkedQueue = container_of(queue, LinkedQueue, iqueue);
 	linkedQueue->list->push(linkedQueue->list, elem);
 }
 
 int LinkedQueue_remove(struct _IQueue *queue)
 {
-	LinkedQueue *linkedQueue = container_of(queue, LinkedQueue, queue);
+	LinkedQueue *linkedQueue = container_of(queue, LinkedQueue, iqueue);
 	return linkedQueue->list->pop(linkedQueue->list);
 }

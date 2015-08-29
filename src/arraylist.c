@@ -26,15 +26,15 @@ ArrayList* newArrayList(size_t size)
 
 	arrayList->_data = (int*)malloc(sizeof(int) * size);
 
-	arrayList->list.push = ArrayList_push;
-	arrayList->list.pop = ArrayList_pop;
+	arrayList->ilist.push = ArrayList_push;
+	arrayList->ilist.pop = ArrayList_pop;
 
 	return arrayList;
 }
 
 void ArrayList_push(IList *list, int elem)
 {
-	ArrayList *arrayList = container_of(list, ArrayList, list);
+	ArrayList *arrayList = container_of(list, ArrayList, ilist);
 	if(arrayList->_capacity == arrayList->_size)
 	{
 		ArrayList_resize(arrayList, arrayList->_size << 1);
@@ -44,7 +44,7 @@ void ArrayList_push(IList *list, int elem)
 
 int ArrayList_pop(IList *list)
 {
-	ArrayList *arrayList = container_of(list, ArrayList, list);
+	ArrayList *arrayList = container_of(list, ArrayList, ilist);
 	return arrayList->_data[--arrayList->_capacity];
 }
 

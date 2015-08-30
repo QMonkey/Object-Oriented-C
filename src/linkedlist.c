@@ -7,6 +7,7 @@
 
 static void LinkedList_push(IList *list, int elem);
 static int LinkedList_pop(IList *list);
+static int LinkedList_empty(IList *list);
 
 LinkedList* newLinkedList()
 {
@@ -19,8 +20,21 @@ LinkedList* newLinkedList()
 
 	linkedList->ilist.push = LinkedList_push;
 	linkedList->ilist.pop = LinkedList_pop;
+	linkedList->ilist.empty = LinkedList_empty;
 
 	return linkedList;
+}
+
+void deleteLinkedList(LinkedList *linkedList)
+{
+	ListNode *tmp = linkedList->head;
+	while(linkedList->head != NULL)
+	{
+		linkedList->head = tmp->next;
+		free(tmp);
+	}
+
+	free(linkedList);
 }
 
 void LinkedList_push(IList *list, int elem)
@@ -54,14 +68,8 @@ int LinkedList_pop(IList *list)
 	return value;
 }
 
-void deleteLinkedList(LinkedList *linkedList)
+int LinkedList_empty(IList *list)
 {
-	ListNode *tmp = linkedList->head;
-	while(linkedList->head != NULL)
-	{
-		linkedList->head = tmp->next;
-		free(tmp);
-	}
-
-	free(linkedList);
+	LinkedList *linkedList = container_of(list, LinkedList, ilist);
+	return linkedList->head == NULL;
 }

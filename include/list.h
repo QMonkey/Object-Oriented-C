@@ -10,6 +10,7 @@ struct _IList
 {
 	void (*push)(struct _IList *list, int elem);
 	int (*pop)(struct _IList *list);
+	int (*empty)(struct _IList *list);
 };
 
 struct _ArrayList

@@ -7,6 +7,7 @@
 
 static void ArrayList_push(IList *list, int elem);
 static int ArrayList_pop(IList *list);
+static int ArrayList_empty(IList *list);
 static void ArrayList_resize(ArrayList *arrayList, size_t size);
 
 ArrayList* newArrayList(size_t size)
@@ -28,8 +29,15 @@ ArrayList* newArrayList(size_t size)
 
 	arrayList->ilist.push = ArrayList_push;
 	arrayList->ilist.pop = ArrayList_pop;
+	arrayList->ilist.empty = ArrayList_empty;
 
 	return arrayList;
+}
+
+void deleteArrayList(ArrayList *arrayList)
+{
+	free(arrayList->_data);
+	free(arrayList);
 }
 
 void ArrayList_push(IList *list, int elem)
@@ -48,6 +56,12 @@ int ArrayList_pop(IList *list)
 	return arrayList->_data[--arrayList->_capacity];
 }
 
+int ArrayList_empty(IList *list)
+{
+	ArrayList *arrayList = container_of(list, ArrayList, ilist);
+	return arrayList->_capacity == 0;
+}
+
 void ArrayList_resize(ArrayList *arrayList, size_t size)
 {
 	if(size <= arrayList->_size)
@@ -62,10 +76,4 @@ void ArrayList_resize(ArrayList *arrayList, size_t size)
 
 	arrayList->_data = data;
 	arrayList->_size = size;
-}
-
-void deleteArrayList(ArrayList *arrayList)
-{
-	free(arrayList->_data);
-	free(arrayList);
 }

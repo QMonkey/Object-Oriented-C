@@ -1,2 +1,2 @@
-# OOC
+# Object-Oriented-C
 Object-Oriented-C
